@@ -1,0 +1,14 @@
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Application.dll
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Application.pdb
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Domain.pdb
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Release\FFFortaleza.Application.csprojResolveAssemblyReference.cache
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Release\FFFortaleza.Application.dll
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Release\FFFortaleza.Application.pdb
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Application.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Application.pdb
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Release\FFFortaleza.Domain.pdb
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Release\FFFortaleza.Application.csprojResolveAssemblyReference.cache
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Release\FFFortaleza.Application.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Release\FFFortaleza.Application.pdb

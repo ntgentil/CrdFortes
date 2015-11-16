@@ -1,0 +1,4 @@
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\bin\Debug\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\bin\Debug\FFFortaleza.Domain.pdb
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\obj\Debug\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\obj\Debug\FFFortaleza.Domain.pdb

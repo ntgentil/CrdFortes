@@ -1,0 +1,7 @@
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Debug\CrdFortes.Application.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Debug\CrdFortes.Application.pdb
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Debug\CrdFortes.Domain.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\bin\Debug\CrdFortes.Domain.pdb
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Debug\CrdFortes.Application.csprojResolveAssemblyReference.cache
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Debug\CrdFortes.Application.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Application\obj\Debug\CrdFortes.Application.pdb

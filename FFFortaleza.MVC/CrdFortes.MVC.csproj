@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{421D73C5-574F-4673-9E5F-45859665FC2E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CrdFortes.MVC</RootNamespace>
+    <AssemblyName>CrdFortes.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Controllers\ReceitasController.cs" />
+    <Compile Include="Controllers\DespesasController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ReceitaViewModel.cs" />
+    <Compile Include="ViewModels\DespesaViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\ajax\ajax-treeview-nodes.html" />
+    <Content Include="Content\assets\ajax\ui-elements-lightbox-ajax.html" />
+    <Content Include="Content\assets\ajax\ui-elements-modals-ajax.html" />
+    <Content Include="Content\assets\javascripts\forms\examples.advanced.form.js" />
+    <Content Include="Content\assets\javascripts\forms\examples.validation.js" />
+    <Content Include="Content\assets\javascripts\forms\examples.wizard.js" />
+    <Content Include="Content\assets\javascripts\jquery.mask.min.js" />
+    <Content Include="Content\assets\javascripts\pages\examples.calendar.js" />
+    <Content Include="Content\assets\javascripts\pages\examples.lockscreen.js" />
+    <Content Include="Content\assets\javascripts\pages\examples.mediagallery.js" />
+    <Content Include="Content\assets\javascripts\pages\examples.session.timeout.js" />
+    <Content Include="Content\assets\javascripts\pages\examples.timeline.js" />
+    <Content Include="Content\assets\javascripts\tables\examples.datatables.ajax.js" />
+    <Content Include="Content\assets\javascripts\tables\examples.datatables.default.js" />
+    <Content Include="Content\assets\javascripts\tables\examples.datatables.editable.js" />
+    <Content Include="Content\assets\javascripts\tables\examples.datatables.row.with.details.js" />
+    <Content Include="Content\assets\javascripts\tables\examples.datatables.tabletools.js" />
+    <Content Include="Content\assets\javascripts\theme.admin.extension.js" />
+    <Content Include="Content\assets\javascripts\theme.custom.js" />
+    <Content Include="Content\assets\javascripts\theme.init.js" />
+    <Content Include="Content\assets\javascripts\theme.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.charts.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.lightbox.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.modals.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.nestable.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.notifications.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.portlets.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.treeview.js" />
+    <Content Include="Content\assets\javascripts\ui-elements\examples.widgets.js" />
+    <Content Include="Content\assets\stylesheets\invoice-print.css" />
+    <Content Include="Content\assets\stylesheets\skins\default.css" />
+    <Content Include="Content\assets\stylesheets\skins\extension.css" />
+    <Content Include="Content\assets\stylesheets\theme-admin-extension.css" />
+    <Content Include="Content\assets\stylesheets\theme-custom.css" />
+    <Content Include="Content\assets\stylesheets\theme.css" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\css\datepicker3.css" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Content\assets\vendor\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\assets\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\assets\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\vendor\jquery-placeholder\jquery.placeholder.js" />
+    <Content Include="Content\assets\vendor\jquery\jquery.js" />
+    <Content Include="Content\assets\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\assets\vendor\modernizr\modernizr.js" />
+    <Content Include="Content\assets\vendor\nanoscroller\nanoscroller.css" />
+    <Content Include="Content\assets\vendor\nanoscroller\nanoscroller.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\LogoMarca\logo.jpg" />
+    <Content Include="Content\LogoMarca\logo.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\assets\ajax\ajax-datatables-sample.json" />
+    <Content Include="Content\assets\ajax\ajax-treeview-children.json" />
+    <Content Include="Content\assets\ajax\ajax-treeview-roots.json" />
+    <Content Include="Content\assets\stylesheets\sass\base\_bootstrap_extend.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_content_with_menu.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_elements.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_form.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_header.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_helpers.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_menu.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_nanoscroll.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_page_header.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_sidebar_left.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_sidebar_left_sizing.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_sidebar_right.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_skeleton.scss" />
+    <Content Include="Content\assets\stylesheets\sass\base\_toolbar.scss" />
+    <Content Include="Content\assets\stylesheets\sass\config\_helpers.scss" />
+    <Content Include="Content\assets\stylesheets\sass\config\_imports.scss" />
+    <Content Include="Content\assets\stylesheets\sass\config\_variables.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_buttons.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_images.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_modal.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_nav_pills.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_notifications.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_pagination.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_progress_bar.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_sidebar_widgets.scss" />
+    <Content Include="Content\assets\stylesheets\sass\gui\_userbox.scss" />
+    <Content Include="Content\assets\stylesheets\sass\invoice-print.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_bs-colorpicker.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_bs-markdown.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_bs-maxlength.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_bs-multiselect.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_bs-tagsinput.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_bs-timepicker.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_codemirror.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_datepicker.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_fileupload.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_form-group-invisible.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_ios7-switch.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_select2.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_spinner.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_summernote.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\forms\_wizard.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\mailbox\_mailbox.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\maps\_gmaps.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\maps\_jqvmap.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_calendar.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_errors.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_invoice.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_log-viewer.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_media-gallery.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_search-results.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_sign.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_timeline.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\pages\_user-profile.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\tables\_datatables.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\tables\_pricing.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\tables\_tables.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_accordions.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_alerts.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_animations.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_carousel.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_charts.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_labels.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_lightbox.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_modals.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_nav-pills.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_nestable.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_notifications.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_panels.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_portlet.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_progressbars.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_sliders.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_tabs.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_toggles.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_treeview.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_widgets.scss" />
+    <Content Include="Content\assets\stylesheets\sass\modules\ui-elements\_word-rotate.scss" />
+    <Content Include="Content\assets\stylesheets\sass\skins\_dark.scss" />
+    <Content Include="Content\assets\stylesheets\sass\theme-admin-extension.scss" />
+    <Content Include="Content\assets\stylesheets\sass\theme-custom.scss" />
+    <Content Include="Content\assets\stylesheets\sass\theme.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_button.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_clearfix.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_directional-values.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_ellipsis.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_font-family.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_hide-text.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_html5-input-types.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_position.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_prefixer.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_retina-image.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_size.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_timing-functions.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_triangle.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\addons\_word-wrap.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_animation.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_appearance.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_backface-visibility.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_background-image.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_background.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_border-image.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_border-radius.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_box-sizing.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_calc.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_columns.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_filter.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_flex-box.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_font-face.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_font-feature-settings.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_hidpi-media-query.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_hyphens.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_image-rendering.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_keyframes.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_linear-gradient.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_perspective.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_placeholder.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_radial-gradient.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_transform.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_transition.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\css3\_user-select.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_assign.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_color-lightness.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_flex-grid.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_golden-ratio.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_grid-width.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_modular-scale.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_px-to-em.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_px-to-rem.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_strip-units.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_tint-shade.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_transition-property-name.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\functions\_unpack.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_convert-units.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_gradient-positions-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_is-num.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_linear-angle-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_linear-gradient-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_linear-positions-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_linear-side-corner-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_radial-arg-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_radial-gradient-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_radial-positions-parser.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_render-gradients.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_shape-size-stripper.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\helpers\_str-to-num.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\settings\_asset-pipeline.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\settings\_prefixer.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\settings\_px-to-em.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\_bourbon-deprecated-upcoming.scss" />
+    <Content Include="Content\assets\stylesheets\sass\vendor\bourbon\_bourbon.scss" />
+    <Content Include="Content\assets\vendor\bootstrap\config.json" />
+    <Content Include="Content\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\assets\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\fffortaleza %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\fffortaleza.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.3.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Despesas\Index.cshtml" />
+    <Content Include="Views\Despesas\Create.cshtml" />
+    <Content Include="Views\Despesas\Edit.cshtml" />
+    <Content Include="Views\Despesas\Delete.cshtml" />
+    <Content Include="Views\Receitas\Index.cshtml" />
+    <Content Include="Views\Receitas\Create.cshtml" />
+    <Content Include="Views\Receitas\Edit.cshtml" />
+    <Content Include="Views\Receitas\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFFortaleza.Application\CrdFortes.Application.csproj">
+      <Project>{ac5282de-f5ea-4173-92f0-54f1c451aecc}</Project>
+      <Name>CrdFortes.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFFortaleza.Domain\CrdFortes.Domain.csproj">
+      <Project>{3e4aa2c6-43b2-4012-804d-80ea7ccedeba}</Project>
+      <Name>CrdFortes.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFFortaleza.Infra.Data\CrdFortes.Infra.Data.csproj">
+      <Project>{6a5d1580-32c0-4613-99e8-15c96e5d0af7}</Project>
+      <Name>CrdFortes.Infra.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52546</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52546/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
