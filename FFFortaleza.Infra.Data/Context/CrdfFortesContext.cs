@@ -15,8 +15,7 @@ namespace CrdFortes.Infra.Data.Context
 
         }
 
-        public DbSet<Despesa> Despesas { get; set; }
-        public DbSet<Receita> Receitas { get; set; }
+        public DbSet<Operacao> Despesas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,8 +33,7 @@ namespace CrdFortes.Infra.Data.Context
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
-            modelBuilder.Configurations.Add(new DespesaConfiguration());
-            modelBuilder.Configurations.Add(new ReceitaConfiguration());
+            modelBuilder.Configurations.Add(new OperacaoConfiguration());
         }
 
         public override int SaveChanges()

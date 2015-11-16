@@ -10,20 +10,20 @@ namespace CrdFortes
     [TestClass]
     public class DespesasTest
     {
-        private DespesaRepository _despesaRepository;
+        private OperacaoRepository _despesaRepository;
 
         [TestInitialize]
         public void Initialize()
         {
-            _despesaRepository = new DespesaRepository();
+            _despesaRepository = new OperacaoRepository();
         }
 
         [TestMethod]
         public void DeveCadastrarDespesa()
         {
-            var despesa = new Despesa
+            var despesa = new Operacao
             {
-                DespesaId = 1,
+                OperacaoId = 1,
                 Categoria = "Conta",
                 DataCadastro = DateTime.Now,
                 Observacao = "Conta Celular Oi",

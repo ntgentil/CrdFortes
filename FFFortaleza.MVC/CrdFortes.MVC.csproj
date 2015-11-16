@@ -143,15 +143,14 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
-    <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\DespesasController.cs" />
+    <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ReceitaViewModel.cs" />
-    <Compile Include="ViewModels\DespesaViewModel.cs" />
+    <Compile Include="ViewModels\OperacaoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\ajax\ajax-treeview-nodes.html" />
@@ -463,14 +462,14 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Despesas\Index.cshtml" />
-    <Content Include="Views\Despesas\Create.cshtml" />
-    <Content Include="Views\Despesas\Edit.cshtml" />
-    <Content Include="Views\Despesas\Delete.cshtml" />
     <Content Include="Views\Receitas\Index.cshtml" />
     <Content Include="Views\Receitas\Create.cshtml" />
     <Content Include="Views\Receitas\Edit.cshtml" />
     <Content Include="Views\Receitas\Delete.cshtml" />
+    <Content Include="Views\Despesas\Create.cshtml" />
+    <Content Include="Views\Despesas\Delete.cshtml" />
+    <Content Include="Views\Despesas\Edit.cshtml" />
+    <Content Include="Views\Despesas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

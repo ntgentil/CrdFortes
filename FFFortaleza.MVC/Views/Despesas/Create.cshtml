@@ -1,4 +1,4 @@
-﻿@model CrdFortes.MVC.ViewModels.DespesaViewModel
+﻿@model CrdFortes.MVC.ViewModels.OperacaoViewModel
 
 @{
     ViewBag.Title = "Cadastrar Despesa";
@@ -17,6 +17,8 @@
                 @using (Html.BeginForm("Create", "Despesas", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
+                    
+                    @Html.HiddenFor(model => model.TipoOperacao, new { @Value = "Despesa"})
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Observacao, new { @class = "control-label col-md-2" })

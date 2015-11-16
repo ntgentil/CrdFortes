@@ -13,8 +13,7 @@ namespace CrdFortes.MVC.AutoMapper
 
         protected override void Configure()
         {
-            Mapper.CreateMap<Despesa, DespesaViewModel>();
-            Mapper.CreateMap<Receita, ReceitaViewModel>();
+            Mapper.CreateMap<Operacao, OperacaoViewModel>();
         }
     }
 }

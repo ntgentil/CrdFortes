@@ -1,5 +1,4 @@
-﻿@using CrdFortes.MVC.ViewModels
-@model IEnumerable<CrdFortes.MVC.ViewModels.ReceitaViewModel>
+﻿@model IEnumerable<CrdFortes.MVC.ViewModels.OperacaoViewModel>
 
 @{
     ViewBag.Title = "Lista de Receitas";
@@ -7,25 +6,24 @@
 <header class="page-header">
     <h2>Receitas</h2>
 </header>
-
-
 <div class="row">
     <div class="col-md-12">
         <section class="panel">
             <header class="panel-heading">
-                <h2 class="panel-title">Lista de Receitas</h2>
                 <div class="panel-actions">
                     <p>
                         @Html.ActionLink("Nova Receita", "Create")
                     </p>
                 </div>
+
+                <h2 class="panel-title">Lista de Receitas</h2>
             </header>
             <div class="panel-body">
                 <div class="row">
                     @using (Html.BeginForm())
                     {
                         <div class="col-md-6 form-group">
-                            @Html.TextBox("Categoria", null, new {id = "categoria", @class = "form-control ", placeholder = "Categoria" })
+                            @Html.TextBox("Categoria", null, new { id = "categoria", @class = "form-control ", placeholder = "Categoria" })
                         </div>
 
                         <div class="col-md-2 form-group">
@@ -34,7 +32,7 @@
 
 
                         <div class="col-md-2 form-group">
-                            @Html.TextBox("DataFinal", null, new { @id = "dataFinal",  @class = "form-control data", placeholder = "Data Final" })
+                            @Html.TextBox("DataFinal", null, new { @id = "dataFinal", @class = "form-control data", placeholder = "Data Final" })
                         </div>
 
                         <div class="col-md-2 form-group">
@@ -43,7 +41,6 @@
                     }
 
                 </div>
-                
                 <div class="table-responsive">
                     <table class="table mb-none">
                         <thead>
@@ -80,10 +77,10 @@
                                         @Html.DisplayFor(modelItem => item.DataCadastro)
                                     </td>
                                     <td>
-                                        <a href='@Url.Action("Edit", "Receitas", new { id = item.ReceitaId })'>
+                                        <a href='@Url.Action("Edit", "Receitas", new { id = item.OperacaoId })'>
                                             <i class="fa fa-pencil"></i>
-                                        </a> |
-                                        <a href='@Url.Action("Delete", "Receitas", new { id = item.ReceitaId })'>
+                                        </a> | 
+                                        <a href='@Url.Action("Delete", "Receitas", new { id = item.OperacaoId })'>
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </td>
@@ -95,9 +92,8 @@
             </div>
         </section>
     </div>
-
+    
 </div>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
