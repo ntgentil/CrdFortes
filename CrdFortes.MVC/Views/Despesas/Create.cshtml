@@ -1,0 +1,74 @@
+﻿@model CrdFortes.MVC.ViewModels.DespesaViewModel
+
+@{
+    ViewBag.Title = "Cadastrar Despesa";
+}
+<header class="page-header">
+    <h2>Despesas</h2>
+</header>
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Nova Despesa</h2>
+            </header>
+            <div class="panel-body">
+                @using (Html.BeginForm("Create", "Despesas", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Observacao, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Observacao, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Observacao, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Categoria, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Categoria, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Valor, new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control money" } })
+                            @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Salvar" class="btn btn-default" />
+                        </div>
+                       
+                    </div>
+
+                }
+            </div>
+        </section>
+
+    </div>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.money').mask("##0,00", { reverse: true });
+    });
+
+</script>
+}

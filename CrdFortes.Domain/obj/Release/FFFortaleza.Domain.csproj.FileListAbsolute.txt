@@ -1,0 +1,8 @@
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\bin\Release\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\bin\Release\FFFortaleza.Domain.pdb
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\obj\Release\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FeiraFacilFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\obj\Release\FFFortaleza.Domain.pdb
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\bin\Release\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\bin\Release\FFFortaleza.Domain.pdb
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\obj\Release\FFFortaleza.Domain.dll
+C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.Domain\obj\Release\FFFortaleza.Domain.pdb

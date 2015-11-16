@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="fffortaleza" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ntgentil\\Repositorios\\FeiraFacilFortaleza\\FFFortaleza\\FFFortaleza\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\ntgentil\\Repositorios\\FeiraFacilFortaleza\\FFFortaleza\\FFFortaleza\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="FfFortaleza-Web.config Connection String" description="" value="Data Source=(localdb)\ProjectsV12;AttachDbFilename=|DataDirectory|\FfFortalezaDb.mdf;Initial Catalog=FfFortalezaDb;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\FeiraFacilFortaleza\\FFFortaleza\\FFFortaleza\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='FfFortaleza']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\FeiraFacilFortaleza\\FFFortaleza\\FFFortaleza\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='FfFortaleza']/@connectionString" />
+  </parameter>
+</parameters>
