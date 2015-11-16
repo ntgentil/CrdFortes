@@ -20,6 +20,9 @@ namespace CrdFortes.Domain.Services
             return _operacaoRepository.Filtro(tipoOperacao, categoria, dataInicial, dataFinal);
         }
 
-
+        public IEnumerable<string> GetCategorias()
+        {
+            return _operacaoRepository.GetCategorias();
+        }
     }
 }

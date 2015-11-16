@@ -19,5 +19,9 @@ namespace CrdFortes.Application
             return _operacaoService.Filtro(tipoOperacao, categoria, dataInicial, dataFinal);
         }
 
+        public IEnumerable<string> GetCategorias()
+        {
+            return _operacaoService.GetCategorias();
+        }
     }
 }

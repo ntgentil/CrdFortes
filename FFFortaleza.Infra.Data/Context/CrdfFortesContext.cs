@@ -15,7 +15,7 @@ namespace CrdFortes.Infra.Data.Context
 
         }
 
-        public DbSet<Operacao> Despesas { get; set; }
+        public DbSet<Operacao> Operacao { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

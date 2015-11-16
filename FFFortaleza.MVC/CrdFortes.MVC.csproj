@@ -144,6 +144,7 @@
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\DespesasController.cs" />
+    <Compile Include="Controllers\RelatoriosController.cs" />
     <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -470,6 +471,7 @@
     <Content Include="Views\Despesas\Delete.cshtml" />
     <Content Include="Views\Despesas\Edit.cshtml" />
     <Content Include="Views\Despesas\Index.cshtml" />
+    <Content Include="Views\Relatorios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

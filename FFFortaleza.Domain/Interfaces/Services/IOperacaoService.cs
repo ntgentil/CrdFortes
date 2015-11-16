@@ -6,5 +6,6 @@ namespace CrdFortes.Domain.Interfaces.Services
     public interface IOperacaoService : IServiceBase<Operacao>
     {
         IEnumerable<Operacao> Filtro(EnumTipoOperacao? tipoOperacao, string categoria, string dataInicial, string dataFinal);
+        IEnumerable<string> GetCategorias();
     }
 }

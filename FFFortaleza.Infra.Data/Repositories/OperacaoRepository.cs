@@ -19,13 +19,33 @@ namespace CrdFortes.Infra.Data.Repositories
             DateTime dtInicio = Convert.ToDateTime(dataInicial);
             DateTime dtFinal = Convert.ToDateTime(string.Format("{0} 23:59:59", dataFinal));
 
+            if (tipoOperacao == null && string.IsNullOrEmpty(categoria))
+            {
+                return Db.Operacao.Where(c => (c.TipoOperacao == EnumTipoOperacao.Despesa || c.TipoOperacao == EnumTipoOperacao.Receita) &&
+                                          c.DataCadastro >= dtInicio && c.DataCadastro <= dtFinal);
+            }
+            if (tipoOperacao == null)
+            {
+                return Db.Operacao.Where(c => (c.TipoOperacao == EnumTipoOperacao.Despesa || c.TipoOperacao == EnumTipoOperacao.Receita) &&
+                                              c.Categoria.Contains(categoria) &&
+                                              c.DataCadastro >= dtInicio && c.DataCadastro <= dtFinal);
+            }
 
-            return Db.Despesas.Where(c => c.TipoOperacao == tipoOperacao && 
-                    c.Categoria.Contains(categoria) &&
+            if(string.IsNullOrEmpty(categoria))
+            {
+                return Db.Operacao.Where(c => c.TipoOperacao == tipoOperacao &&
                     c.DataCadastro >= dtInicio && c.DataCadastro <= dtFinal);
+            }
 
+            
+            return Db.Operacao.Where(c => c.TipoOperacao == tipoOperacao &&
+                                          c.Categoria.Contains(categoria) &&
+                                          c.DataCadastro >= dtInicio && c.DataCadastro <= dtFinal);
+        }
 
-
+        public IEnumerable<string> GetCategorias()
+        {
+            return Db.Operacao.Select(c => c.Categoria);
         }
     }
 }
