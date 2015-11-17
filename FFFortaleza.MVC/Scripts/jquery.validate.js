@@ -1236,6 +1236,8 @@ $.format = $.validator.format;
 			return ajax.apply(this, arguments);
 		};
 	}
+
+	
 }(jQuery));
 
 // provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation

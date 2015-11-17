@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using CrdFortes.Application.Interface;
@@ -10,101 +9,96 @@ namespace CrdFortes.MVC.Controllers
 {
     public class ReceitasController : Controller
     {
+        private readonly IOperacaoAppService _operacaoApp;
 
-        private readonly IReceitaAppService _receitaApp;
-
-        public ReceitasController(IReceitaAppService receitaApp)
+        public ReceitasController(IOperacaoAppService operacaoApp)
         {
-            _receitaApp = receitaApp;
+            _operacaoApp = operacaoApp;
         }
 
         public ActionResult Index(string categoria, string dataInicial, string dataFinal)
         {
-            if (string.IsNullOrEmpty(categoria) && (string.IsNullOrEmpty(dataInicial) && string.IsNullOrEmpty(dataFinal)))
-            {
-                 var receitaViewModel = Mapper.Map<IEnumerable<Receita>, IEnumerable<ReceitaViewModel>>(_receitaApp.GetAll());
+           
+            var receitaViewModel = Mapper.Map<IEnumerable<Operacao>, IEnumerable<OperacaoViewModel>>(_operacaoApp.Filtro(EnumTipoOperacao.Receita, categoria, dataInicial, dataFinal));
 
-                 return View(receitaViewModel);
-            }
-            else
-            {
-                var receitaViewModel = Mapper.Map<IEnumerable<Receita>, IEnumerable<ReceitaViewModel>>(_receitaApp.Filtro(categoria, dataInicial, dataFinal));
-
-               return View(receitaViewModel);
-            }
+            return View(receitaViewModel);
+            
 
         }
 
-        // GET: Receitas/Details/5
+        // GET: Receita/Details/5
         public ActionResult Details(int id)
         {
-            var receita = _receitaApp.GetById(id);
-            var receitaViewModel = Mapper.Map<Receita, ReceitaViewModel>(receita);
+            var receita = _operacaoApp.GetById(id);
+            var receitaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(receita);
 
             return View(receitaViewModel);
         }
 
-        // GET: Receitas/Create
+        // GET: Receita/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Receitas/Create
+        // POST: Receita/Create
         [HttpPost]
-        public ActionResult Create(ReceitaViewModel receita)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(OperacaoViewModel receita)
         {
             if (ModelState.IsValid)
             {
-                var receitaDomain = Mapper.Map<ReceitaViewModel, Receita>(receita);
+                var receitaDomain = Mapper.Map<OperacaoViewModel, Operacao>(receita);
 
-                _receitaApp.Add(receitaDomain);
+                _operacaoApp.Add(receitaDomain);
 
                 return RedirectToAction("Index");
             }
             return View(receita);
         }
 
-        // GET: Receitas/Edit/5
+        // GET: Receita/Edit/5
         public ActionResult Edit(int id)
         {
-            var categoria = _receitaApp.GetById(id);
-            var categoriaViewModel = Mapper.Map<Receita, ReceitaViewModel>(categoria);
-
-            return View(categoriaViewModel);
-        }
-
-        // POST: Receitas/Edit/5
-        [HttpPost]
-        public ActionResult Edit(ReceitaViewModel receita)
-        {
-            if (ModelState.IsValid)
-            {
-                var receitasDomain = Mapper.Map<ReceitaViewModel, Receita>(receita);
-                _receitaApp.Update(receitasDomain);
-
-                return RedirectToAction("Index");
-            }
-            return View(receita);
-        }
-
-        // GET: Receitas/Delete/5
-        public ActionResult Delete(int id)
-        {
-            var receita = _receitaApp.GetById(id);
-            var receitaViewModel = Mapper.Map<Receita, ReceitaViewModel>(receita);
+            var receita = _operacaoApp.GetById(id);
+            var receitaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(receita);
 
             return View(receitaViewModel);
         }
 
+        // POST: Receita/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(OperacaoViewModel receita)
+        {
+            if (ModelState.IsValid)
+            {
+                var receitaDomain = Mapper.Map<OperacaoViewModel, Operacao>(receita);
+                _operacaoApp.Update(receitaDomain);
+
+                return RedirectToAction("Index");
+            }
+            return View(receita);
+        }
+
+        // GET: Receita/Delete/5
+        public ActionResult Delete(int id)
+        {
+            var receita = _operacaoApp.GetById(id);
+            var receitaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(receita);
+
+            return View(receitaViewModel);
+        }
+
+        // POST: Receita/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var receita = _receitaApp.GetById(id);
-            _receitaApp.Remove(receita);
+            var receita = _operacaoApp.GetById(id);
+            _operacaoApp.Remove(receita);
 
-            return RedirectToAction("Index");
+           return RedirectToAction("Index");
         }
     }
 }

@@ -48,12 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityConfig\ReceitaConfiguration.cs" />
-    <Compile Include="EntityConfig\DespesaConfiguration.cs" />
+    <Compile Include="EntityConfig\OperacaoConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ReceitaRepository.cs" />
-    <Compile Include="Repositories\DespesaRepository.cs" />
+    <Compile Include="Repositories\OperacaoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,101 +9,76 @@ namespace CrdFortes.MVC.Controllers
 {
     public class DespesasController : Controller
     {
-        private readonly IDespesaAppService _despesaApp;
+        private readonly IOperacaoAppService _operacaoApp;
 
-        public DespesasController(IDespesaAppService despesaApp)
+        public DespesasController(IOperacaoAppService operacaoApp)
         {
-            _despesaApp = despesaApp;
+            _operacaoApp = operacaoApp;
         }
 
         public ActionResult Index(string categoria, string dataInicial, string dataFinal)
         {
-            if (string.IsNullOrEmpty(categoria) && (string.IsNullOrEmpty(dataInicial) && string.IsNullOrEmpty(dataFinal)))
-            {
-                var despesaViewModel = Mapper.Map<IEnumerable<Despesa>, IEnumerable<DespesaViewModel>>(_despesaApp.GetAll());
-
-                return View(despesaViewModel);
-            }
-            else
-            {
-                var despesaViewModel = Mapper.Map<IEnumerable<Despesa>, IEnumerable<DespesaViewModel>>(_despesaApp.Filtro(categoria, dataInicial, dataFinal));
-
-                return View(despesaViewModel);
-            }
-
-        }
-
-        // GET: Despesas/Details/5
-        public ActionResult Details(int id)
-        {
-            var despesa = _despesaApp.GetById(id);
-            var despesaViewModel = Mapper.Map<Despesa, DespesaViewModel>(despesa);
+            var despesaViewModel = Mapper.Map<IEnumerable<Operacao>, IEnumerable<OperacaoViewModel>>(_operacaoApp.Filtro(EnumTipoOperacao.Despesa, categoria, dataInicial, dataFinal));
 
             return View(despesaViewModel);
         }
 
-        // GET: Despesas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Despesas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DespesaViewModel despesa)
+        public ActionResult Create(OperacaoViewModel despesa)
         {
             if (ModelState.IsValid)
             {
-                var despesaDomain = Mapper.Map<DespesaViewModel, Despesa>(despesa);
+                var despesaDomain = Mapper.Map<OperacaoViewModel, Operacao>(despesa);
 
-                _despesaApp.Add(despesaDomain);
+                _operacaoApp.Add(despesaDomain);
 
                 return RedirectToAction("Index");
             }
             return View(despesa);
         }
 
-        // GET: Despesas/Edit/5
         public ActionResult Edit(int id)
         {
-            var despesa = _despesaApp.GetById(id);
-            var despsaViewModel = Mapper.Map<Despesa, DespesaViewModel>(despesa);
-
-            return View(despsaViewModel);
-        }
-
-        // POST: Despesas/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(DespesaViewModel despesa)
-        {
-            if (ModelState.IsValid)
-            {
-                var despesaDomain = Mapper.Map<DespesaViewModel, Despesa>(despesa);
-                _despesaApp.Update(despesaDomain);
-
-                return RedirectToAction("Index");
-            }
-            return View(despesa);
-        }
-
-        // GET: Despesas/Delete/5
-        public ActionResult Delete(int id)
-        {
-            var despesa = _despesaApp.GetById(id);
-            var despesaViewModel = Mapper.Map<Despesa, DespesaViewModel>(despesa);
+            var despesa = _operacaoApp.GetById(id);
+            var despesaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(despesa);
 
             return View(despesaViewModel);
         }
 
-        // POST: Despesas/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(OperacaoViewModel despesa)
+        {
+            if (ModelState.IsValid)
+            {
+                var despesaDomain = Mapper.Map<OperacaoViewModel, Operacao>(despesa);
+                _operacaoApp.Update(despesaDomain);
+
+                return RedirectToAction("Index");
+            }
+            return View(despesa);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var despesa = _operacaoApp.GetById(id);
+            var despesaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(despesa);
+
+            return View(despesaViewModel);
+        }
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var despesa = _despesaApp.GetById(id);
-            _despesaApp.Remove(despesa);
+            var despesa = _operacaoApp.GetById(id);
+            _operacaoApp.Remove(despesa);
 
            return RedirectToAction("Index");
         }

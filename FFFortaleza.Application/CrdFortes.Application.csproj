@@ -40,11 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppServiceBase.cs" />
-    <Compile Include="DespesaAppService.cs" />
+    <Compile Include="OperacaoAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
-    <Compile Include="Interface\IReceitaAppService.cs" />
-    <Compile Include="Interface\IDespesaAppService.cs" />
-    <Compile Include="ReceitaAppService.cs" />
+    <Compile Include="Interface\IOperacaoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

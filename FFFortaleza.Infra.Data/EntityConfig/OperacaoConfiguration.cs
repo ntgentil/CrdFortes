@@ -3,11 +3,14 @@ using CrdFortes.Domain.Entities;
 
 namespace CrdFortes.Infra.Data.EntityConfig
 {
-    public class DespesaConfiguration : EntityTypeConfiguration<Despesa>
+    public class OperacaoConfiguration : EntityTypeConfiguration<Operacao>
     {
-        public DespesaConfiguration()
+        public OperacaoConfiguration()
         {
-            HasKey(d => d.DespesaId);
+            HasKey(d => d.OperacaoId);
+
+            Property(d => d.TipoOperacao)
+                .IsRequired();
 
             Property(d => d.Categoria)
                 .IsRequired();

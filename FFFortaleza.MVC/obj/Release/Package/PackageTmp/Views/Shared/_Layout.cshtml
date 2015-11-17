@@ -1,41 +1,100 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html class="fixed">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8">
+
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    @Styles.Render("~/Content/cssTemplate")
+
     @Scripts.Render("~/bundles/modernizr")
+    
+    @Styles.Render("~/Content/FontAwesome")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <section class="body">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+        <header class="header">
+            <div class="logo-container">
+                <a href="../" class="logo">
+                    <img src="~/Content/LogoMarca/logo.png" width="90" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <span class="separator"></span>
+                <div id="userbox" class="userbox">
+                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                        <span class="name">Antonio Gentil</span>
+                        <span class="role">desenvolvedor</span>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="inner-wrapper">
+            <aside id="sidebar-left" class="sidebar-left">
+
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        Menu
+                    </div>
+                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+
+                <div class="nano">
+                    <div class="nano-content">
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main">
+                                <li>
+                                    <a href="/Relatorios">
+                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                        <span>Relatórios</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/Receitas" >
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <span>Receitas</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Despesas" >
+                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                        <span>Despesas</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </nav>
+                        <hr class="separator" />
+                    </div>
+                </div>
+            </aside>
+
+            <section role="main" class="content-body">
+                
+                
+                @RenderBody()
+            </section>
+        </div>
+    </section>  
+
+    @Scripts.Render("~/bundles/templatejs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/validations_pt-br")
     @RenderSection("scripts", required: false)
+
+
 </body>
 </html>

@@ -28,9 +28,13 @@ namespace CrdFortes.MVC
 
             bundles.Add(new StyleBundle("~/Content/cssTemplate").Include(
                       "~/Content/assets/vendor/bootstrap/css/bootstrap.css",
-                      "~/Content/assets/vendor/font-awesome/css/font-awesome.css",
                       "~/Content/assets/vendor/bootstrap-datepicker/css/datepicker3.css",
                       "~/Content/assets/stylesheets/theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/FontAwesome").Include(
+                      "~/Content/font-awesome.min.css"));
+
+
 
 
              bundles.Add(new ScriptBundle("~/bundles/templatejs").Include(
@@ -41,6 +45,9 @@ namespace CrdFortes.MVC
                       "~/Content/assets/javascripts/theme.init.js",
                       "~/Content/assets/javascripts/jquery.mask.min.js"));
 
+
+             bundles.Add(new ScriptBundle("~/bundles/validations_pt-br").Include(
+                       "~/Scripts/jquery.validate.custom.pt-br.js"));
             
 
         }

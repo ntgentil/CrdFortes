@@ -68,16 +68,13 @@ namespace CrdFortes.MVC
         {
 
             kernel.Bind(typeof (IAppServiceBase<>)).To(typeof (AppServiceBase<>));
-            kernel.Bind<IDespesaAppService>().To<DespesaAppService>();
-            kernel.Bind<IReceitaAppService>().To<ReceitaAppService>();
+            kernel.Bind<IOperacaoAppService>().To<OperacaoAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
-            kernel.Bind<IDespesaService>().To<DespesaService>();
-            kernel.Bind<IReceitaService>().To<ReceitaService>();
+            kernel.Bind<IOperacaoService>().To<OperacaoService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
-            kernel.Bind<IDespesaRepository>().To<DespesaRepository>();
-            kernel.Bind<IReceitaRepository>().To<ReceitaRepository>();
+            kernel.Bind<IOperacaoRepository>().To<OperacaoRepository>();
         }        
     }
 }

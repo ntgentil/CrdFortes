@@ -1,0 +1,108 @@
+﻿@model IEnumerable<CrdFortes.MVC.ViewModels.OperacaoViewModel>
+
+@{
+    ViewBag.Title = "Relatórios";
+}
+<header class="page-header">
+    <h2>Relatórios</h2>
+</header>
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="row">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="col-md-6 form-group">
+                            @Html.DropDownList("categoria", null, new { id = "categoria", @class = "form-control ", placeholder = "Categoria" })
+                        </div>
+
+                        <div class="col-md-2 form-group">
+                            @Html.TextBox("DataInicial", null, new { @id = "dataInicio", @class = "form-control data", placeholder = "Data Inicial" })
+                        </div>
+
+
+                        <div class="col-md-2 form-group">
+                            @Html.TextBox("DataFinal", null, new { @id = "dataFinal", @class = "form-control data", placeholder = "Data Final" })
+                        </div>
+
+                        <div class="col-md-2 form-group">
+                            <input type="submit" value="Filtrar" class="btn btn-default">
+                        </div>
+                    }
+
+                </div>
+                <div class="table-responsive">
+                    <table class="table mb-none">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Observacao)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataCadastro)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TipoOperacao)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Categoria)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Valor)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Observacao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                                    </td>
+                                    <td>
+                                        <span style="color: @(item.TipoOperacao.ToString() == "Despesa" ? "#ff0000" : "#47a447")">@Html.DisplayFor(modelItem => item.TipoOperacao)</span>
+                                        
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Categoria)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Valor)
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>    </td>
+                                <td><strong>Saldo:</strong></td>
+                                <td>
+                                    
+                                    @String.Format("{0:C}", (Model.Where(c => c.TipoOperacao.ToString() == "Receita").Sum(c => c.Valor)) - (Model.Where(c => c.TipoOperacao.ToString() == "Despesa").Sum(c => c.Valor)))
+                                    
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('.data').mask('00/00/0000');
+    });
+
+    </script>
+
+}
