@@ -153,6 +153,10 @@
     <Compile Include="ViewModels\OperacaoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\crdfFortes.mdf" />
+    <Content Include="App_Data\crdfFortes_log.ldf">
+      <DependentUpon>crdfFortes.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\assets\ajax\ajax-treeview-nodes.html" />
     <Content Include="Content\assets\ajax\ui-elements-lightbox-ajax.html" />
     <Content Include="Content\assets\ajax\ui-elements-modals-ajax.html" />
@@ -477,9 +481,7 @@
     <Content Include="Views\Despesas\Index.cshtml" />
     <Content Include="Views\Relatorios\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

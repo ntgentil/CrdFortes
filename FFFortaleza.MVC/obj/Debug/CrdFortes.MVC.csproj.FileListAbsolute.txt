@@ -43,6 +43,7 @@ C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.M
 C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.MVC\obj\Debug\CrdFortes.MVC.csprojResolveAssemblyReference.cache
 C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.MVC\obj\Debug\CrdFortes.MVC.dll
 C:\Users\ntgentil\Repositorios\FFFortaleza\FFFortaleza\FFFortaleza\FFFortaleza.MVC\obj\Debug\CrdFortes.MVC.pdb
+C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\obj\Debug\CrdFortes.MVC.csprojResolveAssemblyReference.cache
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\bin\CrdFortes.MVC.dll.config
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\bin\CrdFortes.MVC.dll
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\bin\CrdFortes.MVC.pdb
@@ -85,6 +86,5 @@ C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\bin\System.Web.WebPages
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\bin\System.Web.WebPages.Razor.xml
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\bin\Antlr3.Runtime.pdb
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\bin\Newtonsoft.Json.xml
-C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\obj\Debug\CrdFortes.MVC.csprojResolveAssemblyReference.cache
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\obj\Debug\CrdFortes.MVC.dll
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.MVC\obj\Debug\CrdFortes.MVC.pdb

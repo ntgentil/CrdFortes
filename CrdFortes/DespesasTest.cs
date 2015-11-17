@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using CrdFortes.Domain.Entities;
 using CrdFortes.Infra.Data.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,6 +16,9 @@ namespace CrdFortes
         {
             _operacaoRepository = operacaoRepository;
         }
+        
+        public DespesasTest()
+        {}
 
         [TestInitialize]
         public void Initialize()
@@ -23,6 +27,7 @@ namespace CrdFortes
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException))]
         public void DeveCadastrarDespesa()
         {
             var despesa = new Operacao
@@ -35,6 +40,15 @@ namespace CrdFortes
             };
 
             _operacaoRepository.Add(despesa);
+
+        }
+        [TestMethod]
+        public void DeveCadastrarDespesa1()
+        {
+            
+            var x = _operacaoRepository.GetAll();
+
+            Assert.IsNotNull(x);
 
         }
 
