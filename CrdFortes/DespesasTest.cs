@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Net.Http;
+using CrdFortes.Application;
 using CrdFortes.Domain.Entities;
 using CrdFortes.Infra.Data.Repositories;
+using CrdFortes.MVC.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -10,12 +13,17 @@ namespace CrdFortes
     [TestClass]
     public class DespesasTest
     {
-        private OperacaoRepository _despesaRepository;
+        private OperacaoRepository _operacaoRepository;
+
+        public DespesasTest(OperacaoRepository operacaoRepository)
+        {
+            _operacaoRepository = operacaoRepository;
+        }
 
         [TestInitialize]
         public void Initialize()
         {
-            _despesaRepository = new OperacaoRepository();
+            _operacaoRepository = new OperacaoRepository();
         }
 
         [TestMethod]
@@ -24,45 +32,16 @@ namespace CrdFortes
             var despesa = new Operacao
             {
                 OperacaoId = 1,
-                Categoria = "Conta",
+                Categoria = null,
                 DataCadastro = DateTime.Now,
-                Observacao = "Conta Celular Oi",
+                Observacao = null,
                 Valor = Convert.ToDecimal("120,00")
             };
 
-            _despesaRepository.Add(despesa);
+            _operacaoRepository.Add(despesa);
 
-            var result = _despesaRepository.GetById(1);
-
-            Assert.IsNotNull(result);
-            Assert.AreEqual("Conta", result.Categoria);
         }
 
-
-        [TestMethod]
-        public void CreateContactRequiredFirstName()
-        {
-            Assert.Fail();  
-        }
-
-
-        [TestMethod]
-        public void CreateContactRequiredLastName()
-        {
-            Assert.Fail();  
-        }
-
-        [TestMethod]
-        public void CreateContactInvalidPhone()
-        {
-            Assert.Fail();  
-        }
-
-
-        [TestMethod]
-        public void CreateContactInvalidEmail()
-        {
-            Assert.Fail();  
-        }
+       
     }
 }

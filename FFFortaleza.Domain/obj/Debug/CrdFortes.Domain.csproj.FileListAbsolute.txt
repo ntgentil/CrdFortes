@@ -6,3 +6,4 @@ C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.Domain\bin\Debug\CrdFortes.
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.Domain\bin\Debug\CrdFortes.Domain.pdb
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.Domain\obj\Debug\CrdFortes.Domain.dll
 C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.Domain\obj\Debug\CrdFortes.Domain.pdb
+C:\Users\ntgentil\Repositorios\CrdFortes\FFFortaleza.Domain\obj\Debug\CrdFortes.Domain.csprojResolveAssemblyReference.cache

@@ -14,10 +14,10 @@ namespace CrdFortes.Infra.Data.Repositories
                 dataInicial = "01/01/1900 00:00:00";
 
             if (string.IsNullOrEmpty(dataFinal))
-                dataFinal = DateTime.Now.ToString("dd-MM-yyyy");
+                dataFinal = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
             DateTime dtInicio = Convert.ToDateTime(dataInicial);
-            DateTime dtFinal = Convert.ToDateTime(string.Format("{0} 23:59:59", dataFinal));
+            DateTime dtFinal = Convert.ToDateTime(string.Format("{0}", dataFinal));
 
             if (tipoOperacao == null && string.IsNullOrEmpty(categoria))
             {
@@ -45,7 +45,7 @@ namespace CrdFortes.Infra.Data.Repositories
 
         public IEnumerable<string> GetCategorias()
         {
-            return Db.Operacao.Select(c => c.Categoria);
+            return Db.Operacao.Select(c => c.Categoria).Distinct();
         }
     }
 }

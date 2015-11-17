@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<CrdFortes.MVC.ViewModels.OperacaoViewModel>
 
 @{
-    ViewBag.Title = "Lista de Operacao";
+    ViewBag.Title = "Lista de Despesas";
 }
 <header class="page-header">
-    <h2>Operacao</h2>
+    <h2>Despesa</h2>
 </header>
 <div class="row">
     <div class="col-md-12">
@@ -16,7 +16,7 @@
                     </p>
                 </div>
 
-                <h2 class="panel-title">Lista de Operacao</h2>
+                <h2 class="panel-title">Lista de Despesas</h2>
             </header>
             <div class="panel-body">
                 <div class="row">
@@ -77,10 +77,10 @@
                                         @Html.DisplayFor(modelItem => item.DataCadastro)
                                     </td>
                                     <td>
-                                        <a href='@Url.Action("Edit", "Operacao", new { id = item.OperacaoId })'>
+                                        <a href='@Url.Action("Edit", "Despesas", new { id = item.OperacaoId })'>
                                             <i class="fa fa-pencil"></i>
                                         </a> | 
-                                        <a href='@Url.Action("Delete", "Operacao", new { id = item.OperacaoId })'>
+                                        <a href='@Url.Action("Delete", "Despesas", new { id = item.OperacaoId })'>
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </td>

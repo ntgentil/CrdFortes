@@ -1,12 +1,10 @@
-﻿@using System.Globalization
-@using Microsoft.Ajax.Utilities
-@model IEnumerable<CrdFortes.MVC.ViewModels.OperacaoViewModel>
+﻿@model IEnumerable<CrdFortes.MVC.ViewModels.OperacaoViewModel>
 
 @{
     ViewBag.Title = "Relatórios";
 }
 <header class="page-header">
-    <h2>Relatório</h2>
+    <h2>Relatórios</h2>
 </header>
 <div class="row">
     <div class="col-md-12">
@@ -81,10 +79,10 @@
                                 <td></td>
                                 <td></td>
                                 <td>    </td>
-                                <td><strong>Valor Total:</strong></td>
+                                <td><strong>Saldo:</strong></td>
                                 <td>
                                     
-                                    @String.Format("{0:C}", Model.Sum(c => c.Valor))
+                                    @String.Format("{0:C}", (Model.Where(c => c.TipoOperacao.ToString() == "Receita").Sum(c => c.Valor)) - (Model.Where(c => c.TipoOperacao.ToString() == "Despesa").Sum(c => c.Valor)))
                                     
                                 </td>
 

@@ -11,7 +11,8 @@
     @Styles.Render("~/Content/cssTemplate")
 
     @Scripts.Render("~/bundles/modernizr")
-
+    
+    @Styles.Render("~/Content/FontAwesome")
 </head>
 <body>
     <section class="body">
@@ -54,13 +55,13 @@
                     <div class="nano-content">
                         <nav id="menu" class="nav-main" role="navigation">
                             <ul class="nav nav-main">
-                                <li class="nav-active">
-                                    <a href="/">
-                                        <i class="fa fa-home" aria-hidden="true"></i>
-                                        <span>Home</span>
+                                <li>
+                                    <a href="/Relatorios">
+                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                        <span>Relatórios</span>
                                     </a>
                                 </li>
-                                
+
                                 <li>
                                     <a href="/Receitas" >
                                         <i class="fa fa-download" aria-hidden="true"></i>
@@ -70,13 +71,7 @@
                                 <li>
                                     <a href="/Despesas" >
                                         <i class="fa fa-external-link" aria-hidden="true"></i>
-                                        <span>Operacao</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Relatorios">
-                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                        <span>Relatórios</span>
+                                        <span>Despesas</span>
                                     </a>
                                 </li>
                                 
@@ -96,7 +91,10 @@
     </section>  
 
     @Scripts.Render("~/bundles/templatejs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/validations_pt-br")
     @RenderSection("scripts", required: false)
+
 
 </body>
 </html>

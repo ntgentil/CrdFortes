@@ -23,14 +23,6 @@ namespace CrdFortes.MVC.Controllers
             return View(despesaViewModel);
         }
 
-        public ActionResult Details(int id)
-        {
-            var despesa = _operacaoApp.GetById(id);
-            var despesaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(despesa);
-
-            return View(despesaViewModel);
-        }
-
         public ActionResult Create()
         {
             return View();
