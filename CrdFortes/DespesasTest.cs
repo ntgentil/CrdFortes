@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Configuration;
-using System.Net.Http;
-using CrdFortes.Application;
 using CrdFortes.Domain.Entities;
 using CrdFortes.Infra.Data.Repositories;
-using CrdFortes.MVC.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
