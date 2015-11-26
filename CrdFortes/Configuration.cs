@@ -3,14 +3,14 @@ using CrdFortes.Infra.Data.Context;
 
 namespace CrdFortes
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<CrdfFortesContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CrdFortesContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(CrdfFortesContext context)
+        protected override void Seed(CrdFortesContext context)
         {
             //  This method will be called after migrating to the latest version.
 

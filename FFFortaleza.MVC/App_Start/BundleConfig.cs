@@ -11,7 +11,7 @@ namespace CrdFortes.MVC
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.jquery.validate.custom.pt-br.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -32,23 +32,19 @@ namespace CrdFortes.MVC
                       "~/Content/assets/stylesheets/theme.css"));
 
             bundles.Add(new StyleBundle("~/Content/FontAwesome").Include(
-                      "~/Content/font-awesome.min.css"));
+                      "~/Content/font-awesome.css"));
 
 
 
 
              bundles.Add(new ScriptBundle("~/bundles/templatejs").Include(
-                      "~/Content/assets/vendor/jquery/jquery.js",
+                        "~/Scripts/jquery-{version}.js",
                       "~/Content/assets/vendor/nanoscroller/nanoscroller.js",
                       "~/Content/assets/vendor/jquery-placeholder/jquery.placeholder.js",
                       "~/Content/assets/javascripts/theme.js",
                       "~/Content/assets/javascripts/theme.init.js",
                       "~/Content/assets/javascripts/jquery.mask.min.js"));
 
-
-             bundles.Add(new ScriptBundle("~/bundles/validations_pt-br").Include(
-                       "~/Scripts/jquery.validate.custom.pt-br.js"));
-            
 
         }
     }

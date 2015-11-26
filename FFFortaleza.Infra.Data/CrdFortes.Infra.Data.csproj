@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="Context\CrdfFortesContext.cs" />
+    <Compile Include="Context\CrdFortesContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

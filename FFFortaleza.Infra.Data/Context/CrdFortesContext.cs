@@ -7,10 +7,10 @@ using CrdFortes.Infra.Data.EntityConfig;
 
 namespace CrdFortes.Infra.Data.Context
 {
-    public class CrdfFortesContext : DbContext
+    public class CrdFortesContext : DbContext
     {
-        public CrdfFortesContext()
-            : base("crdfFortes")
+        public CrdFortesContext()
+            : base("crdFortes")
         {
 
         }

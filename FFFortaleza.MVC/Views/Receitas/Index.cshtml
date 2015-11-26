@@ -1,5 +1,4 @@
-﻿@model IEnumerable<CrdFortes.MVC.ViewModels.OperacaoViewModel>
-
+﻿
 @{
     ViewBag.Title = "Lista de Receitas";
 }
@@ -7,19 +6,21 @@
     <h2>Receitas</h2>
 </header>
 <div class="row">
+    
+
     <div class="col-md-12">
-        <section class="panel">
+        <section class="panel" id="List">
             <header class="panel-heading">
                 <div class="panel-actions">
                     <p>
-                        @Html.ActionLink("Nova Receita", "Create")
+                        <a href="#" id="Adicionar">Nova Receita</a>
                     </p>
                 </div>
 
                 <h2 class="panel-title">Lista de Receitas</h2>
             </header>
             <div class="panel-body">
-                <div class="row">
+                @*<div class="row">
                     @using (Html.BeginForm())
                     {
                         <div class="col-md-6 form-group">
@@ -40,55 +41,79 @@
                         </div>
                     }
 
-                </div>
+                </div>*@
                 <div class="table-responsive">
-                    <table class="table mb-none">
+                    <table class="table mb-none" data-bind="visible: Receitas().length > 0">
                         <thead>
                             <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Observacao)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Categoria)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Valor)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.DataCadastro)
-                                </th>
+                                <th>Observacao</th>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>Data Cadastro</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Observacao)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Categoria)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Valor)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DataCadastro)
-                                    </td>
-                                    <td>
-                                        <a href='@Url.Action("Edit", "Receitas", new { id = item.OperacaoId })'>
-                                            <i class="fa fa-pencil"></i>
-                                        </a> | 
-                                        <a href='@Url.Action("Delete", "Receitas", new { id = item.OperacaoId })'>
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
+                        <tbody data-bind="foreach: Receitas">
+                            <tr>
+                                <td data-bind="text: Observacao"></td>
+                                <td data-bind="text: Categoria"></td>
+                                <td data-bind="text: formatCurrency(Valor)"></td>
+                                <td data-bind="text: moment(DataCadastro).format('DD/MM/YYYY')"></td>
+                                <td>
+                                    <a data-bind="click: $root.edit">
+                                        <i class="fa fa-pencil"></i>
+                                    </a> |
+                                    <a data-bind="click: $root.delete">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </section>
+        
+        
+        <section class="panel" id="Create" data-bind="ifnot: Receita()" style="display: none" >
+            <header class="panel-heading">
+                <h2 class="panel-title">Nova Receita</h2>
+            </header>
+            <div class="panel-body">
+                <input data-bind="value: $root.TipoOperacao, visible: false" value="1" type="text" title="TipoOperacao" />
+                
+                <div class="form-group">
+                    <label for="Observacao" class="control-label col-md-2">Observacao</label>
+                    <div class="col-md-10">
+                        <input data-bind="value: $root.Observacao" type="text" title="Observacao" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Categoria" class="control-label col-md-2">Categoria</label>
+                    <div class="col-md-10">
+                        <input data-bind="value: $root.Categoria" type="text" title="Categoria" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Valor" class="control-label col-md-2">Valor</label>
+                    <div class="col-md-10">
+                        <input data-bind="value: $root.Valor" type="text" title="Valor" class="form-control" />
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input data-bind="click: $root.create" value="Salvar" class="btn btn-default" />
+                        <input data-bind="click: $root.reset" id="Cancelar" value="Cancelar" class="btn btn-default" />
+                    </div>
+
+                </div>
+
             </div>
         </section>
     </div>
@@ -96,12 +121,176 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/knockout-3.3.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment-with-locales.js"></script>
+
+
     <script type="text/javascript">
-    $(document).ready(function () {
-        $('.data').mask('00/00/0000');
-    });
+
+
+        function formatCurrency(value) {
+            return "$" + value.toFixed(2);
+        }
+
+        function ReceitaViewModel() {
+
+            var self = this;
+
+            self.OperacaoId = ko.observable("");
+            self.Observacao = ko.observable("");
+            self.Valor = ko.observable("");
+            self.Categoria = ko.observable("");
+            self.TipoOperacao = ko.observable("");
+
+            // Receita
+            var receita = {
+                OperacaoId: self.OperacaoId,
+                Observacao: self.Observacao,
+                Valor: self.Valor,
+                Categoria: self.Categoria,
+                TipoOperacao: self.TipoOperacao,
+            };
+
+            self.Receita = ko.observable();
+            self.Receitas = ko.observableArray();
+
+            $.ajax({
+                url: '@Url.Action("Filtro", "Receitas")',
+                cache: false,
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                data: {},
+                success: function (data) {
+                    self.Receitas(data);
+                }
+            });
+
+
+            //Add New Item
+            self.create = function () {
+                if (receita.Observacao != "" && receita.Categoria() != "" && receita.Valor() != "") {
+                    $.ajax({
+                        url: '@Url.Action("Create", "Receitas")',
+                        cache: false,
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8',
+                        data: ko.toJSON(receita),
+                        success: function (data) {
+                            self.Receitas.push(data);
+                            self.Observacao("");
+                            self.Valor("");
+                            self.Categoria("");
+
+                            $('#Create').hide();
+                            $('#List').show();
+                        }
+                    }).fail(function (xhr, textStatus, err) {
+                        alert(err);
+                    });
+
+                } else {
+                    alert('Insira os valores corretamentes !!');
+                }
+
+            };
+
+            // Delete product details
+            @*self.delete = function (Receita) {
+                if (confirm('Tem certeza que deseja deletar essa receita ??')) {
+                    var id = Receita.OperacaoId;
+
+                    $.ajax({
+                        url: '@Url.Action("Delete", "Receitas")',
+                        cache: false,
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8',
+                        data: ko.toJSON(id),
+                        success: function (data) {
+                            self.Products.remove(Receita);
+
+                        }
+                    }).fail(function (xhr, textStatus, err) {
+                        self.status(err);
+                    });
+                }
+            };
+
+            // Edit product details
+            self.edit = function (Receita) {
+                $('#Update').dialog();
+                self.Receitas(Receita);
+
+            };*@
+
+            // Update product details
+            @*self.update = function () {
+                var Receita = self.Receita();
+                $.ajax({
+                    url: '@Url.Action("Edit", "Receitas")',
+                    cache: false,
+                    type: 'PUT',
+                    contentType: 'application/json; charset=utf-8',
+                    data: ko.toJSON(Receita),
+                    success: function (data) {
+                        self.Receitas.removeAll();
+                        self.Receitas(data);
+                        self.Receita(null);
+                        alert("Registro atualizado");
+                        $('#Update').dialog("close");
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    alert(err);
+                });
+            };*@
+
+            // Reset product details
+            self.reset = function () {
+                self.Observacao("");
+                self.Valor("");
+                self.Categoria("");
+                $('#Create').hide();
+                $('#Update').hide();
+                $('#List').show();
+            };
+
+            // Cancel product details
+            self.cancel = function () {
+                self.Receita(null);
+                $('#Create').hide();
+                $('#Update').hide();
+                $('#List').show();
+            };
+        }
+
+        var viewModel = new ReceitaViewModel();
+        ko.applyBindings(viewModel);
+
+
+
+        //acoes de tela
+        $(document).ready(function () {
+            $('#Adicionar').click(function () {
+                $('#List').hide();
+                $('#Create').show();
+            });
+
+        });
+
 
     </script>
-
 }
+
+
+
+
+
+
+
+
+
+

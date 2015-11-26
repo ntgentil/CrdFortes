@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using CrdFortes.Application.Interface;
@@ -16,14 +17,18 @@ namespace CrdFortes.MVC.Controllers
             _operacaoApp = operacaoApp;
         }
 
-        public ActionResult Index(string categoria, string dataInicial, string dataFinal)
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Filtro(string categoria, string dataInicial, string dataFinal)
         {
            
             var receitaViewModel = Mapper.Map<IEnumerable<Operacao>, IEnumerable<OperacaoViewModel>>(_operacaoApp.Filtro(EnumTipoOperacao.Receita, categoria, dataInicial, dataFinal));
 
-            return View(receitaViewModel);
+            return Json(receitaViewModel, JsonRequestBehavior.AllowGet);
             
-
         }
 
         // GET: Receita/Details/5
@@ -32,7 +37,7 @@ namespace CrdFortes.MVC.Controllers
             var receita = _operacaoApp.GetById(id);
             var receitaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(receita);
 
-            return View(receitaViewModel);
+            return Json(receitaViewModel, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Receita/Create
@@ -43,18 +48,18 @@ namespace CrdFortes.MVC.Controllers
 
         // POST: Receita/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(OperacaoViewModel receita)
         {
-            if (ModelState.IsValid)
-            {
-                var receitaDomain = Mapper.Map<OperacaoViewModel, Operacao>(receita);
+            if (receita == null) return Json(null);
 
-                _operacaoApp.Add(receitaDomain);
+            receita.TipoOperacao = EnumTipoOperacao.Receita;
+            receita.DataCadastro = DateTime.Now;
 
-                return RedirectToAction("Index");
-            }
-            return View(receita);
+            var receitaDomain = Mapper.Map<OperacaoViewModel, Operacao>(receita);
+
+            _operacaoApp.Add(receitaDomain);
+
+            return Json(receita, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Receita/Edit/5
@@ -63,7 +68,7 @@ namespace CrdFortes.MVC.Controllers
             var receita = _operacaoApp.GetById(id);
             var receitaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(receita);
 
-            return View(receitaViewModel);
+            return Json(receitaViewModel, JsonRequestBehavior.AllowGet);
         }
 
         // POST: Receita/Edit/5
@@ -76,9 +81,9 @@ namespace CrdFortes.MVC.Controllers
                 var receitaDomain = Mapper.Map<OperacaoViewModel, Operacao>(receita);
                 _operacaoApp.Update(receitaDomain);
 
-                return RedirectToAction("Index");
+                return Json(receita, JsonRequestBehavior.AllowGet);
             }
-            return View(receita);
+            return Json(null);
         }
 
         // GET: Receita/Delete/5
@@ -98,7 +103,7 @@ namespace CrdFortes.MVC.Controllers
             var receita = _operacaoApp.GetById(id);
             _operacaoApp.Remove(receita);
 
-           return RedirectToAction("Index");
+            return Json(new { Status = true }, JsonRequestBehavior.AllowGet);
         }
     }
 }

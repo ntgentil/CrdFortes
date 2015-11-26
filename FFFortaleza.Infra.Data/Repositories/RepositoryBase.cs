@@ -9,7 +9,7 @@ namespace CrdFortes.Infra.Data.Repositories
 {
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class    
     {
-        protected CrdfFortesContext Db = new CrdfFortesContext();
+        protected CrdFortesContext Db = new CrdFortesContext();
 
         public void Add(TEntity obj)
         {
