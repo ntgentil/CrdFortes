@@ -2,12 +2,11 @@
 <parameters>
   <parameter name="CrdFortesDb-Web.config Connection String" description="CrdFortesDb A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=(localdb)\ProjectsV12;AttachDbFilename=|DataDirectory|\CrdFortesDb.mdf;Initial Catalog=CrdFortesDb;Integrated Security=True" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\CrdFortes\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='CrdFortesDb']/@connectionString" />
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\CrdFortes\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CrdFortesDb']/@connectionString" />
   </parameter>
-  <parameter name="crdfFortes-Web.config Connection String" description="crdfFortes A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="crdfFortes_ConnectionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\CrdFortes\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='crdfFortes']/@connectionString" />
+  <parameter name="crdFortes-Web.config Connection String" description="crdFortes A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Server=GENTILWINMAC\;Database=CrdFortesDb;User ID=sa;Password=gentil19;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\CrdFortes\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='crdFortes']/@connectionString" />
   </parameter>
-  <parameter name="crdfFortes_DatabasePublish-Web.config Connection String" description="crdfFortes_DatabasePublish A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="crdfFortes_DatabasePublish.ConnetionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\CrdFortes\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='crdfFortes_DatabasePublish']/@connectionString" />
+  <parameter name="crdFortes_DatabasePublish-Web.config Connection String" description="crdFortes_DatabasePublish A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="crdFortes_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ntgentil\\Repositorios\\CrdFortes\\FFFortaleza\.MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='crdFortes_DatabasePublish']/@connectionString" />
   </parameter>
 </parameters>

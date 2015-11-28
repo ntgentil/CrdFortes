@@ -86,19 +86,9 @@ namespace CrdFortes.MVC.Controllers
             return Json(null);
         }
 
-        // GET: Receita/Delete/5
-        public ActionResult Delete(int id)
-        {
-            var receita = _operacaoApp.GetById(id);
-            var receitaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(receita);
-
-            return View(receitaViewModel);
-        }
-
+        
         // POST: Receita/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             var receita = _operacaoApp.GetById(id);
             _operacaoApp.Remove(receita);

@@ -45,6 +45,15 @@ namespace CrdFortes.MVC
                       "~/Content/assets/javascripts/theme.init.js",
                       "~/Content/assets/javascripts/jquery.mask.min.js"));
 
+             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                         "~/Scripts/knockout-3.3.0.js",
+                       "~/Scripts/knockout.mapping-latest.js",
+                       "~/Scripts/moment.min.js",
+                       "~/Scripts/moment-with-locales.js"));
+
+             bundles.Add(new ScriptBundle("~/knockout/receitas").Include(
+                          "~/ScriptsKO/receitas.js"));
+
 
         }
     }
