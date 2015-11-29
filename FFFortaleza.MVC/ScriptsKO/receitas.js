@@ -12,7 +12,6 @@ function ReceitaViewModel() {
     self.Categoria = ko.observable("");
     self.TipoOperacao = ko.observable("");
 
-    // Receita
     var receita = {
         OperacaoId: self.OperacaoId,
         Observacao: self.Observacao,
@@ -35,8 +34,6 @@ function ReceitaViewModel() {
         }
     });
 
-
-    //Add New Item
     self.create = function () {
         if (receita.Observacao != "" && receita.Categoria() != "" && receita.Valor() != "") {
             $.ajax({
@@ -64,7 +61,6 @@ function ReceitaViewModel() {
 
     };
 
-    // Delete product details
     self.delete = function (Receita) {
         if (confirm('Tem certeza que deseja deletar essa receita ??')) {
             var id = Receita.OperacaoId;
@@ -84,7 +80,6 @@ function ReceitaViewModel() {
         }
     };
 
-    // Edit product details
     self.edit = function (Receita) {
         
         $('#List').hide();
@@ -94,7 +89,6 @@ function ReceitaViewModel() {
 
     };
 
-    // Update product details
     self.update = function () {
         var Receita = self.Receita();
         $.ajax({
@@ -107,7 +101,6 @@ function ReceitaViewModel() {
                 self.Receitas.removeAll();
                 self.Receitas(data);
                 self.Receita(null);
-                //alert("Registro atualizado");
                 $('#Update').hide();
                 $('#List').show();
             }
@@ -116,7 +109,6 @@ function ReceitaViewModel() {
         });
     };
 
-    // Reset product details
     self.reset = function () {
         self.Observacao("");
         self.Valor("");
@@ -126,7 +118,6 @@ function ReceitaViewModel() {
         $('#List').show();
     };
 
-    // Cancel product details
     self.cancel = function () {
         self.Receita(null);
         $('#Create').hide();
@@ -138,7 +129,7 @@ function ReceitaViewModel() {
 var viewModel = new ReceitaViewModel();
 ko.applyBindings(viewModel);
 
-//acoes de tela
+
 $(document).ready(function () {
     $('#Adicionar').click(function () {
         $('#List').hide();
