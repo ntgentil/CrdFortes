@@ -59,29 +59,19 @@ namespace CrdFortes.MVC.Controllers
 
             _operacaoApp.Add(receitaDomain);
 
-            return Json(receita, JsonRequestBehavior.AllowGet);
+            return Json(receitaDomain, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Receita/Edit/5
-        public ActionResult Edit(int id)
-        {
-            var receita = _operacaoApp.GetById(id);
-            var receitaViewModel = Mapper.Map<Operacao, OperacaoViewModel>(receita);
-
-            return Json(receitaViewModel, JsonRequestBehavior.AllowGet);
-        }
-
-        // POST: Receita/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(OperacaoViewModel receita)
         {
-            if (ModelState.IsValid)
+            if (receita.OperacaoId != 0)
             {
                 var receitaDomain = Mapper.Map<OperacaoViewModel, Operacao>(receita);
                 _operacaoApp.Update(receitaDomain);
 
-                return Json(receita, JsonRequestBehavior.AllowGet);
+                var receitaViewModel = Mapper.Map<IEnumerable<Operacao>, IEnumerable<OperacaoViewModel>>(_operacaoApp.Filtro(EnumTipoOperacao.Receita, null, null, null));
+
+                return Json(receitaViewModel, JsonRequestBehavior.AllowGet);
             }
             return Json(null);
         }

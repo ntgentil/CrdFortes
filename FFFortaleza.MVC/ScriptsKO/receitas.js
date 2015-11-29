@@ -86,8 +86,11 @@ function ReceitaViewModel() {
 
     // Edit product details
     self.edit = function (Receita) {
-        $('#Update').dialog();
-        self.Receitas(Receita);
+        
+        $('#List').hide();
+        $('#Update').show();
+
+        self.Receita(Receita);
 
     };
 
@@ -97,15 +100,16 @@ function ReceitaViewModel() {
         $.ajax({
             url: 'Receitas/Edit/',
             cache: false,
-            type: 'PUT',
+            type: 'POST',
             contentType: 'application/json; charset=utf-8',
             data: ko.toJSON(Receita),
             success: function (data) {
                 self.Receitas.removeAll();
                 self.Receitas(data);
                 self.Receita(null);
-                alert("Registro atualizado");
-                $('#Update').dialog("close");
+                //alert("Registro atualizado");
+                $('#Update').hide();
+                $('#List').show();
             }
         }).fail(function (xhr, textStatus, err) {
             alert(err);
@@ -133,8 +137,6 @@ function ReceitaViewModel() {
 
 var viewModel = new ReceitaViewModel();
 ko.applyBindings(viewModel);
-
-
 
 //acoes de tela
 $(document).ready(function () {

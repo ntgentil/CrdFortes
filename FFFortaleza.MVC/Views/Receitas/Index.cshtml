@@ -79,6 +79,7 @@
             <header class="panel-heading">
                 <h2 class="panel-title">Nova Receita</h2>
             </header>
+
             <div class="panel-body">
                 <input data-bind="value: $root.TipoOperacao, visible: false" value="1" type="text" title="TipoOperacao" />
                 
@@ -116,6 +117,52 @@
 
             </div>
         </section>
+        
+        
+        <section class="panel" id="Update" data-bind="if: Receita" style="display:none;">
+
+                <header class="panel-heading">
+                    <h2 class="panel-title">Editar Receita</h2>
+                </header>
+
+                <div class="panel-body">
+                    <input data-bind="text: Receita().OperacaoId, visible: false" type="text" title="OperacaoId" />
+                    <input data-bind="value: Receita().TipoOperacao, visible: false" value="1" type="text" title="TipoOperacao" />
+
+                    <div class="form-group">
+                        <label for="Observacao" class="control-label col-md-2">Observacao</label>
+                        <div class="col-md-10">
+                            <input data-bind="value: Receita().Observacao" type="text" title="Observacao" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Categoria" class="control-label col-md-2">Categoria</label>
+                        <div class="col-md-10">
+                            <input data-bind="value: Receita().Categoria" type="text" title="Categoria" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Valor" class="control-label col-md-2">Valor</label>
+                        <div class="col-md-10">
+                            <input data-bind="value: Receita().Valor" type="text" title="Valor" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input data-bind="click: $root.update" value="Editar" class="btn btn-default" />
+                            <input data-bind="click: $root.reset" id="Cancelar" value="Cancelar" class="btn btn-default" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        
+        
+
     </div>
     
 </div>
