@@ -12,6 +12,7 @@
 - Bundle 
 - Minification
 - JavaScript
+- Testes Unitarios
 - knockoutjs
 - Ajax
 
