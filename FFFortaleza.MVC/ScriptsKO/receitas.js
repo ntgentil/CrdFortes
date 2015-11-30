@@ -34,6 +34,24 @@ function ReceitaViewModel() {
         }
     });
 
+    self.filtrar = function () {
+
+        $.ajax({
+            url: 'Receitas/Filtro/',
+            cache: false,
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: "{categoria:'" + $('#categoria').val() + "', dataInicial:'" + $('#dataInicio').val() + "', dataFinal:'" + $('#dataFinal').val() + "' }",
+            success: function (data) {
+                self.Receitas.removeAll();
+                self.Receitas(data);
+            }
+        }).fail(function (xhr, textStatus, err) {
+            alert(err);
+        });
+
+    };
+
     self.create = function () {
         if (receita.Observacao != "" && receita.Categoria() != "" && receita.Valor() != "") {
             $.ajax({
