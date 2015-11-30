@@ -1,6 +1,7 @@
 # CrdFortes
  Controle de receitas e despesas 
 
+
 - ASP.NET MVC 5.2
 - Arquitetura padrão DDD
 - Entity Framework
@@ -8,5 +9,8 @@
 - IoC com Ninject
 - ViewModels
 - Bootstrap
-- Bundle
+- Bundle 
 - Minification
+- JavaScript
+- knockoutjs
+- Ajax
