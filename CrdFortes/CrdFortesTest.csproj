@@ -108,7 +108,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TesteReceitas.cs" />
+    <Compile Include="TestOperacoes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FFFortaleza.Application\CrdFortes.Application.csproj">
