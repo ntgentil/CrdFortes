@@ -14,3 +14,7 @@
 - JavaScript
 - knockoutjs
 - Ajax
+
+Obs: 
+- receitas (ajax, knockoutjs)
+- despesas (razor)
