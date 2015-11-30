@@ -19,29 +19,26 @@
 
                 <h2 class="panel-title">Lista de Receitas</h2>
             </header>
-            <div class="panel-body">
-                @*<div class="row">
-                    @using (Html.BeginForm())
-                    {
-                        <div class="col-md-6 form-group">
-                            @Html.TextBox("Categoria", null, new { id = "categoria", @class = "form-control ", placeholder = "Categoria" })
-                        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.TextBox("Categoria", null, new { @id = "categoria", @name = "categoria", @class = "form-control ", placeholder = "Categoria" })
+                </div>
 
-                        <div class="col-md-2 form-group">
-                            @Html.TextBox("DataInicial", null, new { @id = "dataInicio", @class = "form-control data", placeholder = "Data Inicial" })
-                        </div>
+                <div class="col-md-2 form-group">
+                    @Html.TextBox("DataInicial", null, new { @id = "dataInicio", @name = "dataInicio", @class = "form-control data", placeholder = "Data Inicial" })
+                </div>
 
 
-                        <div class="col-md-2 form-group">
-                            @Html.TextBox("DataFinal", null, new { @id = "dataFinal", @class = "form-control data", placeholder = "Data Final" })
-                        </div>
+                <div class="col-md-2 form-group">
+                    @Html.TextBox("DataFinal", null, new { @id = "dataFinal", @name = "dataFinal", @class = "form-control data", placeholder = "Data Final" })
+                </div>
 
-                        <div class="col-md-2 form-group">
-                            <input type="submit" value="Filtrar" class="btn btn-default">
-                        </div>
-                    }
+                <div class="col-md-2 form-group">
+                    <input data-bind="click: $root.filtrar" value="Filtrar" class="btn btn-twitter" style="width: 100px;" />
+                </div>
 
-                </div>*@
+            </div>
                 <div class="table-responsive">
                     <table class="table mb-none" data-bind="visible: Receitas().length > 0">
                         <thead>
