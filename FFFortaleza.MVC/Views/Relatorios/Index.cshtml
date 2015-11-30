@@ -52,6 +52,15 @@
                                 <td data-bind="text: formatCurrency(Valor)"></td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Total</td>
+                                <td data-bind="text: formatCurrency($root.Total())"></td>
+                            </tr>
+                        </tfoot>
                     </table>
                     
                      @*<span style="color: @(item.TipoOperacao.ToString() == "Despesa" ? "#ff0000" : "#47a447")">@Html.DisplayFor(modelItem => item.TipoOperacao)</span>*@

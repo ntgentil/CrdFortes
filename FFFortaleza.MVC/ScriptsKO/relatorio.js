@@ -52,6 +52,14 @@ function RelatorioViewModel() {
 
     };
 
+    self.Total = ko.computed(function () {
+        var sum = 0;
+        var arr = self.Operacoes();
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i].Valor;
+        }
+        return sum;
+    });
     
 
     self.reset = function () {
