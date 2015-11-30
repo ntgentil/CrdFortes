@@ -11,3 +11,6 @@
 - Bootstrap
 - Bundle 
 - Minification
+- JavaScript
+- knockoutjs
+- Ajax
