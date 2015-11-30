@@ -6,7 +6,7 @@ using CrdFortes.Domain.Interfaces.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace CrdFortes
+namespace TestCrdFortes
 {
     [TestClass]
     public class TestOperacoes

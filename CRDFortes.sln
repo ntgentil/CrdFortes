@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrdFortes.Infra.Data", "FFF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrdFortes.Application", "FFFortaleza.Application\CrdFortes.Application.csproj", "{AC5282DE-F5EA-4173-92F0-54F1C451AECC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrdFortesTest", "CrdFortes\CrdFortesTest.csproj", "{41867DCD-786D-45E3-B67A-799A26C8BEA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrdFortesTest", "TestCrdFortes\CrdFortesTest.csproj", "{41867DCD-786D-45E3-B67A-799A26C8BEA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
