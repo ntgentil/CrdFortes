@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using CrdFortes.Application.Interface;
@@ -16,21 +17,22 @@ namespace CrdFortes.MVC.Controllers
             _operacaoApp = operacaoApp;
         }
 
-        public ActionResult Index(string categoria, string dataInicial, string dataFinal)
+        public ActionResult Index()
         {
-
-            var categoriaLista = new List<SelectListItem> {new SelectListItem {Text = "Categorias", Value = ""}};
-
-            foreach (var item in _operacaoApp.GetCategorias())
-            {
-                categoriaLista.Add(new SelectListItem { Text = item, Value = item });
-            }
+            var categoriaLista = new List<SelectListItem> { new SelectListItem { Text = "Categorias", Value = "" } };
+            categoriaLista.AddRange(_operacaoApp.GetCategorias().Select(item => new SelectListItem { Text = item, Value = item }));
 
             ViewBag.categoria = categoriaLista;
 
+            return View();
+        }
+
+        public ActionResult Filtro(string categoria, string dataInicial, string dataFinal)
+        {
+
             var receitaViewModel = Mapper.Map<IEnumerable<Operacao>, IEnumerable<OperacaoViewModel>>(_operacaoApp.Filtro(null, categoria, dataInicial, dataFinal));
 
-            return View(receitaViewModel);
+            return Json(receitaViewModel, JsonRequestBehavior.AllowGet);
             
 
         }

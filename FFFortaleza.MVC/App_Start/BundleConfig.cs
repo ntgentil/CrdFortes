@@ -54,6 +54,9 @@ namespace CrdFortes.MVC
              bundles.Add(new ScriptBundle("~/knockout/receitas").Include(
                           "~/ScriptsKO/receitas.js"));
 
+             bundles.Add(new ScriptBundle("~/knockout/relatorio").Include(
+                           "~/ScriptsKO/relatorio.js"));
+
 
         }
     }

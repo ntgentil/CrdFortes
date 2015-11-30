@@ -1,5 +1,4 @@
-﻿@model IEnumerable<CrdFortes.MVC.ViewModels.OperacaoViewModel>
-
+﻿
 @{
     ViewBag.Title = "Relatórios";
 }
@@ -14,81 +13,50 @@
                     @using (Html.BeginForm())
                     {
                         <div class="col-md-6 form-group">
-                            @Html.DropDownList("categoria", null, new { id = "categoria", @class = "form-control ", placeholder = "Categoria" })
+                            @Html.DropDownList("categoria", null, new { @id = "categoria", @name = "categoria", @class = "form-control ", placeholder = "Categoria" })
                         </div>
 
                         <div class="col-md-2 form-group">
-                            @Html.TextBox("DataInicial", null, new { @id = "dataInicio", @class = "form-control data", placeholder = "Data Inicial" })
+                            @Html.TextBox("DataInicial", null, new { @id = "dataInicio", @name = "dataInicio", @class = "form-control data", placeholder = "Data Inicial" })
                         </div>
 
 
                         <div class="col-md-2 form-group">
-                            @Html.TextBox("DataFinal", null, new { @id = "dataFinal", @class = "form-control data", placeholder = "Data Final" })
+                            @Html.TextBox("DataFinal", null, new { @id = "dataFinal", @name = "dataFinal", @class = "form-control data", placeholder = "Data Final" })
                         </div>
 
                         <div class="col-md-2 form-group">
-                            <input type="submit" value="Filtrar" class="btn btn-default">
+                            <input data-bind="click: $root.filtrar" value="Filtrar" class="btn btn-twitter" style="width: 100px;" />
                         </div>
                     }
 
                 </div>
                 <div class="table-responsive">
-                    <table class="table mb-none">
+                    
+                    <table class="table mb-none" data-bind="visible: Operacoes().length > 0">
                         <thead>
                             <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Observacao)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.DataCadastro)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.TipoOperacao)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Categoria)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Valor)
-                                </th>
+                                <th>Observacao</th>
+                                <th>Data Cadastro</th>
+                                <th>Tipo</th>
+                                <th>Categoria</th>
+                                <th>Valor</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Observacao)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DataCadastro)
-                                    </td>
-                                    <td>
-                                        <span style="color: @(item.TipoOperacao.ToString() == "Despesa" ? "#ff0000" : "#47a447")">@Html.DisplayFor(modelItem => item.TipoOperacao)</span>
-                                        
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Categoria)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Valor)
-                                    </td>
-                                </tr>
-                            }
+                        <tbody data-bind="foreach: Operacoes">
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td>    </td>
-                                <td><strong>Saldo:</strong></td>
-                                <td>
-                                    
-                                    @String.Format("{0:C}", (Model.Where(c => c.TipoOperacao.ToString() == "Receita").Sum(c => c.Valor)) - (Model.Where(c => c.TipoOperacao.ToString() == "Despesa").Sum(c => c.Valor)))
-                                    
-                                </td>
-
+                                <td data-bind="text: Observacao"></td>
+                                <td data-bind="text: moment(DataCadastro).format('DD/MM/YYYY')"></td>
+                                <td data-bind="text: TipoOperacao"></td>
+                                <td data-bind="text: Categoria"></td>
+                                <td data-bind="text: formatCurrency(Valor)"></td>
                             </tr>
                         </tbody>
                     </table>
+                    
+                     @*<span style="color: @(item.TipoOperacao.ToString() == "Despesa" ? "#ff0000" : "#47a447")">@Html.DisplayFor(modelItem => item.TipoOperacao)</span>*@
+                                     
+                              
                 </div>
             </div>
         </section>
@@ -99,10 +67,13 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
-    $(document).ready(function () {
-        $('.data').mask('00/00/0000');
-    });
+        $(document).ready(function () {
+            $('.data').mask('00/00/0000');
+        });
 
     </script>
+
+
+    @Scripts.Render("~/knockout/relatorio")
 
 }

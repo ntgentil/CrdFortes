@@ -69,7 +69,7 @@ namespace CrdFortes
         [TestMethod]
         public void DeveRetornarOperacaoPorId()
         {
-            Operacao operacao = MockProductsRepository.GetById(2);
+            var operacao = MockProductsRepository.GetById(2);
 
             Assert.IsNotNull(operacao);
             Assert.IsInstanceOfType(operacao, typeof(Operacao));
@@ -119,11 +119,11 @@ namespace CrdFortes
         {
             var operacao = MockProductsRepository.GetById(1);
 
-            operacao.Observacao = "Novembro";
+            operacao.Observacao = "Novembro Gentil";
 
             MockProductsRepository.Add(operacao);
 
-            Assert.AreEqual("Novembro", MockProductsRepository.GetById(1).Observacao);
+            Assert.AreEqual("Novembro Gentil", MockProductsRepository.GetById(1).Observacao);
         }
     }
 }
