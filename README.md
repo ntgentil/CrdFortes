@@ -4,7 +4,7 @@
 
 - ASP.NET MVC 5.2
 - Arquitetura padrão DDD
-- Entity Framework
+- Entity Framework 6
 - AutoMapper(Mapear ViewModels x Entidade de Domínio)
 - IoC com Ninject
 - ViewModels
@@ -15,6 +15,9 @@
 - Testes Unitarios
 - knockoutjs
 - Ajax
+- Repositório Genérico
+- Repositório Especializado
+- Migrations
 
 Obs: 
 - receitas (ajax, knockoutjs)
