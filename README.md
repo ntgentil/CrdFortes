@@ -1,6 +1,7 @@
 # CrdFortes
  Controle de receitas e despesas 
 
+url: http://crdfortes.azurewebsites.net/
 
 - ASP.NET MVC 5.2
 - Arquitetura padrão DDD
